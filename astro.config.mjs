@@ -9,12 +9,5 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   integrations: [tailwind()],
   output: 'hybrid',
-  adapter: cloudflare({
-    routes: {
-      extend: {
-        include: [{ pattern: '/' }], // Include root (/) for SSR
-        exclude: [{ pattern: '/static/**' }] // Exclude /static and its subdirectories from SSR
-      }
-    },
-  })
+  adapter: cloudflare()
 });
